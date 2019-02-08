@@ -1,18 +1,10 @@
 import React from "react";
 import Link from 'next/link'
-
-const linkStyle = {
-    marginRight: 15,
-    fontSize:'16px',
-    color:'#f00'
-}
+import Head from 'next/head'
 
 const Header = () => (
     <div>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta charSet="utf-8" />
-            <style jsx global>{`
+        <style jsx global>{`
                   body {
                     background: #000;
                     font: 11px menlo;
@@ -28,16 +20,24 @@ const Header = () => (
                     padding:20px;
                   }
                 `}
-            </style>
-        </head>
+        </style>
+        <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charSet="utf-8" />
+            <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+            <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <title>hello next.js</title>
+        </Head>
         <div className="nav">
             <Link href="/">
-                <a style={linkStyle}>Home</a>
+                <a className="btn btn-default">Home</a>
             </Link>
             <Link href="/about">
-                <a style={linkStyle}>About</a>
+                <a className='btn btn-success'>About</a>
             </Link>
         </div>
+
     </div>
 )
 
