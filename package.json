@@ -1,0 +1,27 @@
+{
+  "name": "tblog-next",
+  "version": "1.0.0",
+  "description": "tblog react next.js version",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzq668766/tblog-next.git"
+  },
+  "keywords": [],
+  "author": "luke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tzq668766/tblog-next/issues"
+  },
+  "homepage": "https://github.com/tzq668766/tblog-next#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
+  }
+}
