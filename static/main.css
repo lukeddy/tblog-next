@@ -3,9 +3,17 @@ body {
     font: 11px menlo;
     color: #fff;
 }
-.nav{
-    background:#0ff;
-    padding:10px;
+.tblog-leaf-logo {
+    display: block;
+    width: 120px;
+    height: 53px;
+    background-size: cover;
+    background-image: url(./images/tblog-leaf-logo3.png);
+    margin-left: 36px;
+    margin-top: -18px;
+}
+.main {
+    margin-top: 80px;
 }
 .footer{
     background:#888;
