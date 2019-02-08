@@ -20,25 +20,29 @@ class Pagination extends React.Component{
         this.props.jumpPage(currentPage)
     }
 
+    goToPage(pageNo){
+        this.props.jumpPage(pageNo)
+    }
+
     render(){
-        const {totalPages,currentPage,jumpPage}=this.props
+        const {totalPages,currentPage}=this.props
         return (
             <nav>
                 <ul className="pagination">
                     <li className={currentPage===1?'disabled':''}>
-                        <span className="page-link" onClick={this.prePage.bind(this)}>«</span>
+                        <span className="page-link" onClick={() => this.prePage()}>«</span>
                     </li>
                     {[...Array(totalPages)].map((e, i) => {
                         const pageNo=i+1
                         return(
                             <li key={pageNo} className={currentPage===pageNo?'active':''}>
 
-                                <span className="page-link" onClick={jumpPage.bind(this,pageNo)}>{pageNo}</span>
+                                <span className="page-link" onClick={() => this.goToPage(pageNo)}>{pageNo}</span>
                             </li>
                         )
                     })}
                     <li className={currentPage===totalPages?'disabled':''}>
-                        <span className="page-link" onClick={this.nextPage.bind(this)}>»</span>
+                        <span className="page-link" onClick={() => this.nextPage()}>»</span>
                     </li>
                     <li>
                         <span>当前第{currentPage}页,共{totalPages}页</span>
