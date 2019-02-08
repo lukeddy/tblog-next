@@ -4,10 +4,10 @@ import Link from 'next/link'
 const Nav = () => (
     <div className="nav">
         <Link href="/">
-            <a className="btn btn-default">Home</a>
+            <a>Home</a>
         </Link>
         <Link href="/about">
-            <a className='btn btn-success'>About</a>
+            <a>About</a>
         </Link>
     </div>
 )
