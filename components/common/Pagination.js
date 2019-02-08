@@ -20,12 +20,8 @@ class Pagination extends React.Component{
         this.props.jumpPage(currentPage)
     }
 
-    goToPage(pageNo){
-        this.props.jumpPage(pageNo)
-    }
-
     render(){
-        const {totalPages,currentPage}=this.props
+        const {totalPages,currentPage,jumpPage}=this.props
         return (
             <nav>
                 <ul className="pagination">
@@ -37,7 +33,7 @@ class Pagination extends React.Component{
                         return(
                             <li key={pageNo} className={currentPage===pageNo?'active':''}>
 
-                                <span className="page-link" onClick={() => this.goToPage(pageNo)}>{pageNo}</span>
+                                <span className="page-link" onClick={() => jumpPage(pageNo)}>{pageNo}</span>
                             </li>
                         )
                     })}

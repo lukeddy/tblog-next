@@ -87,7 +87,6 @@ class Index extends Component {
 
         return (
             <div className="container">
-                <p>aaaa</p>
                 {alertData && <Alert alertData={alertData}/>}
                 <div className="col-md-9">
                     <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
