@@ -4,8 +4,8 @@ import Advertise from "../components/Advertise";
 import InlineError from "../components/common/InlineError";
 import PropTypes from 'prop-types';
 import Alert from '../components/common/Alert';
-// import {connect} from 'react-redux';
-// import {login} from '../actions/authActions';
+import {connect} from 'react-redux';
+import {login} from '../store/actions/authActions';
 
 class Login extends React.Component{
     constructor(props){
@@ -36,21 +36,21 @@ class Login extends React.Component{
         this.setState({ errors });
 
         if (Object.keys(errors).length === 0) {
-            // this.setState({loading:true});
-            // this.props.login(this.state.data).then((response)=>{
-            //     this.setState({loading:false});
-            //     this.setState({alertData:response.data});
-            //     if(response.data.status){
-            //         this.props.history.push("/home");
-            //     }
-            // }).catch(error=>{
-            //     console.log(error);
-            //     const data={
-            //         status:false,
-            //         msg:error.toString()
-            //     }
-            //     this.setState({alertData:data});
-            // });
+            this.setState({loading:true});
+            this.props.login(this.state.data).then((response)=>{
+                this.setState({loading:false});
+                this.setState({alertData:response.data});
+                if(response.data.status){
+                    window.location.replace("/");
+                }
+            }).catch(error=>{
+                console.log(error);
+                const data={
+                    status:false,
+                    msg:error.toString()
+                }
+                this.setState({alertData:data});
+            });
         }
     }
 
@@ -68,7 +68,7 @@ class Login extends React.Component{
             <div className="container">
                 <div className="col-md-9">
                     <ul className="breadcrumb">
-                        <li><Link href="/">主页</Link><span className="divider"></span></li>
+                        <li><Link href="/"><a>主页</a></Link><span className="divider"></span></li>
                         <li className="active">登录</li>
                     </ul>
                     <div className="row wrapper">
@@ -98,7 +98,9 @@ class Login extends React.Component{
                                         <button className="btn btn-default" type="reset">重置</button>
                                     </div>
                                 </div>
-                                <p>没有账户？点击<Link href="/register">注册</Link></p>
+                                <p>没有账户？点击<Link href="/register">
+                                    <a>注册</a>
+                                </Link></p>
                             </form>
                         </div>
                     </div>
@@ -118,4 +120,4 @@ PropTypes.propTypes={
     login: PropTypes.func.isRequired
 }
 
-export default Login
+export default connect(null,{login})(Login)
