@@ -1,0 +1,14 @@
+body {
+    background: #000;
+    font: 11px menlo;
+    color: #fff;
+}
+.nav{
+    background:#0ff;
+    padding:10px;
+}
+.footer{
+    background:#888;
+    text-align:center;
+    padding:20px;
+}
