@@ -1,7 +1,30 @@
 body {
-    background: #000;
-    font: 11px menlo;
-    color: #fff;
+    background-color: #e1e1e1;
+    font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.breadcrumb,.pagination ul,.span-common {
+    box-shadow: none
+}
+.breadcrumb>li {
+    text-shadow: none
+}
+
+.breadcrumb a {
+    color: #80bd01
+}
+.container {
+    margin: 15px auto;
+}
+.row {
+    margin: 15px 0;
+}
+.main{
+    margin-top:80px;
 }
 .tblog-leaf-logo {
     display: block;
@@ -12,11 +35,555 @@ body {
     margin-left: 36px;
     margin-top: -18px;
 }
-.main {
-    margin-top: 80px;
+.wrapper{
+    margin-bottom: 20px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -khtml-border-radius: 4px;
 }
-.footer{
-    background:#888;
-    text-align:center;
-    padding:20px;
+
+.panel {
+    margin-bottom: 13px
+}
+
+.panel .header {
+    padding: 10px;
+    background-color: #f6f6f6;
+    border-radius: 3px 3px 0 0
+}
+
+.panel .inner {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 0 0 3px 3px
+}
+
+.panel .inner.no-padding {
+    padding: 0
+}
+.panel a {
+    color: #08c;
+}
+.panel .inner a {
+    color: #778087
+}
+
+.env{
+    font-size:14px;
+    color: #ff4724;
+    padding-right:5px;
+}
+
+/*.banner{*/
+    /*background-size:cover;*/
+    /*background: url("assets/banner.jpg") center;*/
+    /*color:#fff;*/
+/*}*/
+
+.profile-img {
+    display: inline-block;
+    width:200px;
+    height:auto;
+    border-radius: 50%;
+}
+/*首页开始*/
+.topic-tab {
+    margin: 0 10px;
+    color: #80bd01
+}
+
+.topic-tab.current-tab {
+    background-color: #80bd01;
+    color: #fff;
+    padding: 3px 4px;
+    border-radius: 3px
+}
+
+.topic-tab:hover {
+    text-decoration: none
+}
+
+.topiclist-tab {
+    background-color: #e5e5e5;
+    color: #999;
+    padding: 2px 4px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    font-size: 12px
+}
+
+/*首页帖子样式开始*/
+.post-list{
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+
+.post-list li{
+    list-style: none;
+}
+
+.post-list .post-item{
+    border-bottom: 1px solid rgba(178,186,194,.15);
+}
+
+
+.post-item .entry:hover{
+    background-color: #f9fafd;
+}
+
+.post-item .entry-link{
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    color: #909090;
+}
+
+.post-item .content-box{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 1.7rem 2rem 1.4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.content-box .info-box{
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-width: 0;
+}
+.content-box .thumb-box{
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin-left: 2rem;
+    border-radius: 2px;
+}
+.info-box .meta-row{
+    font-size: 1rem;
+    color: #8a9aa9;
+}
+.meta-row .meta-list{
+    margin:0;
+    padding:0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    white-space: nowrap;
+}
+
+.meta-list .item:not(:last-child):after {
+    content: "\B7";
+    margin: 0 .4em;
+    color: #8a9aa9;
+}
+
+.meta-list .item.recommended {
+    color: #f70;
+    margin: 0 .4em;
+}
+
+.meta-list .item.tag, .meta-list .item.username {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.meta-list .item.username{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    max-width: 12em;
+}
+
+.meta-list .item.username>a{
+    font-weight: 700;
+    color: #3b76c5;
+}
+
+.meta-list .item.tag{
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.meta-list .item .tag:not(:last-child):after {
+    content: "/";
+    margin: 0 .5em;
+    color: #b2bac2;
+}
+
+.info-box .title-row{
+    margin-top: .9rem;
+    color: #2e3135;
+}
+
+.title-row .title{
+    font-size: 1.46rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.info-box .desc-row{
+    display: -webkit-box;
+    margin-top: .5rem;
+    max-height: 3.2em;
+    font-size: 1.35rem;
+    line-height: 1.6;
+    letter-spacing: .01em;
+    color: #2e3135;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.info-box .action-row{
+    margin-top: 1.1rem;
+}
+
+.action-row .action-list{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.action-list .action{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    font-size: 1.167rem;
+    color: #b7c5d3;
+    text-decoration: none;
+}
+
+.action-list .action:not(:last-child) {
+    margin-right: 2.2rem;
+}
+
+.action-list .action>.icon {
+    width: 21px;
+    height: 20px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.action-list .action:first-child>.icon{
+    width: 17px;
+    background-position-x: left;
+}
+
+.action-list .action.like>.icon{
+    background-image: url("./images/ico/like.svg");
+}
+
+.action-list .action.comment>.icon{
+    background-image: url("./images/ico/comment.svg");
+}
+.action-list .action.collect>.icon {
+    background-image: url("./images/ico/collect.svg");
+}
+
+.action-list .action.share>.icon{
+    background-image: url("./images/ico/share.svg");
+}
+
+.action-list .action>.title{
+    margin-left: .3rem;
+    height: 20px;
+    line-height: 20px;
+}
+
+.action-list:not(.active)>.action.hover{
+    visibility: visible;
+}
+
+.action-list .action.open,
+.action-list .action:hover {
+    color: #9faebd;
+}
+/*首页帖子样式结束*/
+
+/*文章详情开始*/
+#content .topic-full-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 8px 0;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+#content .changes {
+    font-size: 12px;
+    color: #838383
+}
+
+
+#content .changes a {
+    color: inherit
+}
+
+#content .action {
+    float: right;
+    margin-top: 8px
+}
+
+#content .topic {
+    padding: 10px;
+    border-top: 1px solid #e5e5e5;
+}
+
+#content .topic-content {
+    margin: 0 10px;
+    padding:10px;
+}
+
+#content .topic-content p {
+    font-size: 15px;
+    line-height: 1.7em;
+    overflow: auto;
+}
+
+.topic-tags{
+    margin: 1.2rem 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.topic-tags .tag{
+    display: inline-block;
+    background-color: #f1f1f1;
+    border: none;
+    color: #666;
+    padding: .7rem 1rem;
+    border-radius: 2px;
+    margin-right: .6rem;
+    margin-bottom: .6rem;
+    line-height: 1.5;
+}
+
+.topic-action-wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.topic-action-wrapper .action-link{
+    width:66px;
+    margin:0 10px;
+}
+/*文章详情结束*/
+
+/*评论开始*/
+.comment-wrapper{
+    background: #fff;
+    padding:1em 1em .25em;
+}
+.comment-wrapper .header {
+    border: none;
+    font-size:1.2em;
+    font-weight: 700;
+    line-height: 1.2em;
+    text-transform: none;
+    color: rgba(0,0,0,.87);
+    margin: 0;
+    padding: 0 0;
+}
+.comment {
+    position: relative;
+    background: 0 0;
+    margin: .5em 0;
+    padding: .5em 0 0;
+    border: none;
+    border-top: none;
+    line-height: 1.2;
+}
+
+.comment .avatar {
+    display: block;
+    width: 2.5em;
+    height: 2.5em!important;
+    float: left;
+    margin: .2em 0 0;
+    border-radius: 500rem;
+}
+.comment .avatar img {
+    display: block;
+    margin: 0 auto;
+    height: 35px;
+    width: 35px;
+    border-radius: .25rem;
+}
+
+.comment>.content {
+    display: block;
+    margin-left: 3.5em;
+}
+.comment .author {
+    font-size: 1em;
+    color: rgba(0,0,0,.87);
+    font-weight: 700;
+}
+.comment .metadata {
+    display: inline-block;
+    margin-left: .5em;
+    color: rgba(0,0,0,.4);
+    font-size: .875em;
+}
+.comment .metadata>* {
+    display: inline-block;
+    margin: 0 .5em 0 0;
+}
+.comment .metadata>:last-child {
+    margin-right: 0;
+}
+
+.comment .text {
+    margin: .25em 0 .5em;
+    font-size: .9em;
+    word-wrap: break-word;
+    color: rgba(0,0,0,.87);
+    line-height: 1.3;
+}
+
+.comment>.content>.text {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+    margin: .75em 0 .5em;
+    line-height: 1.5;
+}
+
+.comment .content .ref {
+    position: relative;
+    margin: 10px;
+    color: #6a6a6a;
+}
+.comment .content .ref:before {
+    position: absolute;
+    content: '';
+    border-left: 1px solid #c8c7cc;
+    height: 100%;
+    margin-left: -10px;
+}
+
+.comment .content .ref h4 {
+    font-size:1em;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 0 5px;
+}
+
+.comment .operations {
+    font-size: .875em;
+}
+.comment .operations a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 .75em 0 0;
+    color: rgba(0,0,0,.4);
+}
+.comment .operations .op-icon{
+    cursor: pointer;
+    margin-right:6px;
+}
+/*评论结束*/
+
+
+/*页脚开始*/
+#footer {
+    clear: both;
+    background: #fff
+}
+
+#footer.fix-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+#footer_main {
+    width: 90%;
+    max-width: 1400px;
+    min-width: 960px;
+    margin: 0 auto;
+    color: #e2e2e2;
+    padding: 20px 0;
+    font-size: 13px;
+    line-height: 2em
+}
+
+#footer_main .col_fade a {
+    vertical-align: bottom
+}
+
+#footer_main .col_fade p {
+    line-height: 20px;
+    vertical-align: bottom
+}
+/*页脚结束*/
+.pagination{
+    margin-left:20px;
+}
+.link{
+    color:#08c;
+    cursor: pointer;
+}
+.pagination .page-link{
+    cursor: pointer;
+}
+
+.dropzone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: white;
+}
+
+.editor-toolbar.fullscreen{
+    z-index:9999 !important;
+}
+
+.CodeMirror, .CodeMirror-scroll {
+    min-height: 120px !important;
 }

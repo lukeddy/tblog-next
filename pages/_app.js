@@ -20,7 +20,7 @@ class MyApp extends App {
             </Head>
             <Nav/>
             <div className="container main">
-              <h1 className="text-center">tblog-next.js</h1>
+              {/*<h1 className="text-center">tblog-next.js</h1>*/}
               <Component {...pageProps} />
             </div>
             <Footer/>

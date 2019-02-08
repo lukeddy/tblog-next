@@ -21,7 +21,10 @@
   "homepage": "https://github.com/tzq668766/tblog-next#readme",
   "dependencies": {
     "next": "^7.0.2",
+    "next-images": "^1.0.4",
+    "prop-types": "^15.6.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "validator": "^10.11.0"
   }
 }
