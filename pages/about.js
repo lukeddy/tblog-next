@@ -7,7 +7,7 @@ export default () => (
     <div className="container">
         <div className="col-md-9">
             <ul className="breadcrumb">
-                <li><Link href="/">主页</Link><span className="divider"></span></li>
+                <li><Link href="/"><a>主页</a></Link><span className="divider"></span></li>
                 <li className="active">关于</li>
             </ul>
             <div className="panel">
