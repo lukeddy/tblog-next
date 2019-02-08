@@ -3,8 +3,6 @@ import Advertise from "../components/Advertise";
 import Pagination from "../components/common/Pagination";
 import Alert from '../components/common/Alert';
 import PostList from "../components/PostList";
-// import {connect} from 'react-redux';
-// import {fetchHomeData} from '../store/actions/postActions';
 import Menu from "../components/Menu";
 import {BarLoader} from 'react-spinners';
 import axios from "axios";
@@ -21,8 +19,8 @@ class Index extends Component {
             alertData:null,
         }
         //一定要写这个binding，不然在调用分页接口时会报goToPage is not a function
-        // this.loadData=this.loadData.bind(this);
-        // this.goToPage=this.goToPage.bind(this);
+        this.loadData=this.loadData.bind(this);
+        this.goToPage=this.goToPage.bind(this);
     }
 
     static async getInitialProps() {
@@ -55,6 +53,7 @@ class Index extends Component {
            }else{
                this.setState({alertData:response.data});
            }
+           this.setState({loading:false});
        }catch(error){
            console.log(error);
            this.setState({loading:false});
