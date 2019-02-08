@@ -9,5 +9,8 @@ export default () => (
             <meta name="description" content='about description'  />
         </Head>
         <p>This is the about page</p>
+        <p>
+            <button className="btn btn-warning">button</button>
+        </p>
     </Layout>
 )
