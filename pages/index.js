@@ -24,7 +24,7 @@ class Index extends Component {
     }
 
     static async getInitialProps() {
-        console.log('初始化')
+        // console.log('初始化')
         try{
             const params={pageNO: 1,tab:"all"}
             const response =await axios.post("/home",params)

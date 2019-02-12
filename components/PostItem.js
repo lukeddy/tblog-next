@@ -36,7 +36,7 @@ class PostItem extends React.Component{
                                 </ul>
                             </div>
                             <div className="title-row">
-                                <Link href={`/detail/${post.id}`}>
+                                <Link  as={`/detail/${post.id}`}  href={`/detail/?id=${post.id}`}>
                                     <a  className="title">{post.title}</a>
                                 </Link>
                             </div>
