@@ -21,16 +21,22 @@
   "homepage": "https://github.com/tzq668766/tblog-next#readme",
   "dependencies": {
     "axios": "^0.18.0",
+    "highlight.js": "^9.14.2",
+    "marked": "^0.6.0",
     "next": "^8.0.0",
     "next-images": "^1.0.4",
+    "prismjs": "1.14.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
+    "react-simplemde-editor": "^4.0.0",
     "react-spinners": "^0.5.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "validator": "^10.11.0"
+    "validator": "^10.11.0",
+    "yt-simplemde-editor": "^1.0.1"
   }
 }

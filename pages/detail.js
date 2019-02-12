@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{lazy,Suspense}  from 'react'
 import Link from 'next/link'
 import  {withRouter} from 'next/router'
 import axios from "axios";
@@ -10,17 +10,20 @@ import comment from '../static/images/ico/comment.svg'
 import collect from '../static/images/ico/collect.svg'
 import share from '../static/images/ico/share.svg'
 import getConfig from 'next/config'
+// import Comment from "../components/Comment";
+
+const Comment=lazy(()=>import("../components/Comment"));
 
 class Detail extends React.Component{
     state={
-        postId:null,
-        post:null,
-        comments:[],
+        // postId:this.props.postId,
+        // post:this.props.post,
+        // comments:[],
         loading:false,
         alertData:{},
     }
 
-    static async getInitialProps(router) {
+     async getInitialProps(router) {
         console.log('router:',router)
         const {id}=router.query
         try{
@@ -37,17 +40,40 @@ class Detail extends React.Component{
         }
     }
 
+   //  reloadComments=()=>{
+   //      console.log('reload comments')
+   //      // this.loadComments(this.state.postId)
+   //  }
+   //
+   // async loadComments(postId){
+   //      try{
+   //          const response=await axios.get("/comment/public/"+postId);
+   //          const {status,msg,data}=response.data
+   //          if(status){
+   //              this.setState({comments:data})
+   //          }else{
+   //              this.setState({alertData:response.data});
+   //          }
+   //      }catch(error){
+   //          console.log(error);
+   //          this.setState({alertData:{status:false,msg:"获取帖子评论失败"}});
+   //      }
+   //  }
+
     render(){
-       const {loading}=this.state
-       const {post,alertData}=this.props
+        const {loading,comments}=this.state
+        const {post,alertData}=this.props
         const {serverBaseUrl} = getConfig().publicRuntimeConfig
+        //this.setState({postId:post.id})
+        // this.loadComments(postId)
+        console.log('prop post:',post)
 
         return(
             <div className="container">
                 {/*{loading &&<div className="text-center">数据加载中...</div>}*/}
                 <div className="col-md-9" id="content">
                     <ul className="breadcrumb">
-                        <li><Link href="/">主页</Link><span
+                        <li><Link href="/"><a>主页</a></Link><span
                             className="divider"></span></li>
                         <li>Java<span className="divider"></span></li>
                     </ul>
@@ -107,11 +133,11 @@ class Detail extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        {/*<Suspense fallback={<div className="text-center">加载评论中......</div>}>*/}
-                            {/*<Comment postId={this.state.postId}*/}
-                                     {/*comments={comments}*/}
-                                     {/*reloadComments={this.reloadComments}/>*/}
-                        {/*</Suspense>*/}
+                        {post && <Suspense fallback={<div className="text-center">加载评论中......</div>}>
+                            <Comment postId={post.id}
+                                     comments={comments}
+                                     reloadComments={this.reloadComments}/>
+                        </Suspense>}
                     </div>
                     }
                 </div>
