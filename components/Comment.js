@@ -5,17 +5,6 @@ import PropTypes from 'prop-types';
 
 class Comment extends React.Component{
 
-    constructor(props){
-        super(props)
-
-    }
-
-    componentDidMount(){
-        const postId=this.props.postId
-        console.log('post id:',postId)
-
-    }
-
     render(){
         const {comments}=this.props
 

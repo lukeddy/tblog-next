@@ -22,9 +22,10 @@ class CommentItem extends React.Component{
         alertData:{},
     }
 
-    thumbsUpClicked=(commentId)=>{
+    thumbsUpClicked=async(commentId)=>{
         console.log('thumbs up',commentId)
         //todo thumbs up comment
+        //const response= await
         // this.props.thumbsupComment(commentId).then((response)=>{
         //     if(response.data.status){
         //         this.props.reloadComments();
@@ -72,7 +73,7 @@ class CommentItem extends React.Component{
         let html = ''
         try {
             html = md.render(safeBody)
-            console.log('comment html:',html)
+            //console.log('comment html:',html)
         } catch (e) {
             console.log('parse comment error:',e)
         }

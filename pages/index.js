@@ -6,6 +6,7 @@ import PostList from "../components/PostList";
 import Menu from "../components/Menu";
 import {BarLoader} from 'react-spinners';
 import axios from "axios";
+import {inject, observer} from "mobx-react";
 
 class Index extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class Index extends Component {
             loading:false,
             alertData:null,
         }
+
         //一定要写这个binding，不然在调用分页接口时会报goToPage is not a function
         this.loadData=this.loadData.bind(this);
         this.goToPage=this.goToPage.bind(this);
@@ -86,6 +88,7 @@ class Index extends Component {
 
         return (
             <div className="container">
+                {this.props.authStore.isAuthenticated && <h1>成功登陆</h1>}
                 {alertData && <Alert alertData={alertData}/>}
                 <div className="col-md-9">
                     <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
@@ -109,4 +112,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default inject("authStore")(observer(Index));

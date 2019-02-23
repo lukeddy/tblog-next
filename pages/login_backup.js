@@ -2,8 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import Advertise from "../components/Advertise";
 import InlineError from "../components/common/InlineError";
+// import PropTypes from 'prop-types';
 import Alert from '../components/common/Alert';
-import {inject, observer} from "mobx-react";
+import {Provider,inject, observer} from 'mobx-react';
+import initRootStore from '../store/index'
+import AuthStore from "../store/AuthStore";
+import Login from "../components/Login";
 
 class LoginPage extends React.Component{
     constructor(props){
@@ -17,6 +21,8 @@ class LoginPage extends React.Component{
             errors: {},
             alertData:{},
         }
+
+        this.store=initRootStore
 
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
@@ -39,7 +45,7 @@ class LoginPage extends React.Component{
                 const {isAuthenticated} = this.props.authStore;
                 if(isAuthenticated){
                     // this.props.history.push("/home");
-                  // window.location.replace("/");
+                    window.location.replace("/");
                 }
             });
             // this.props.login(this.state.data).then((response)=>{
@@ -69,7 +75,12 @@ class LoginPage extends React.Component{
     render(){
         const { data, errors,loading,alertData } = this.state;
 
+        const stores={
+            authStore:new AuthStore()
+        }
+
         return (
+            <Provider store={stores}>
                 <div className="container">
                     <div className="col-md-9">
                         <ul className="breadcrumb">
@@ -114,9 +125,11 @@ class LoginPage extends React.Component{
                         <Advertise/>
                     </div>
                 </div>
+                <Login/>
+            </Provider>
         );
     }
 }
 
 
-export default inject("authStore")(observer(LoginPage));
+export default LoginPage;
