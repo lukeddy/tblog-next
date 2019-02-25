@@ -13,8 +13,11 @@ import getConfig from 'next/config'
 
 class Detail extends React.Component{
 
-    static async getInitialProps(router) {
-        const {id}=router.query
+    static async getInitialProps({store,query}) {
+        //console.log('props',store)
+        //return {post:null,comments:null,alertData:{status:false,msg:"测试"}}
+
+        const {id}=query
         try{
             const response =await axios.get("/post/detail/"+id)
             const {status,msg,data}=response.data

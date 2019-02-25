@@ -78,4 +78,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore, {debug: true})(MyApp);
+export default withRedux(makeStore, {debug: false})(MyApp);
