@@ -3,7 +3,9 @@ import Link from 'next/link'
 import Advertise from "../components/Advertise";
 import InlineError from "../components/common/InlineError";
 import Alert from '../components/common/Alert';
-import {inject, observer} from "mobx-react";
+import {connect} from 'react-redux';
+import {login} from '../store/actions/authActions';
+import PropTypes from 'prop-types';
 
 class LoginPage extends React.Component{
     constructor(props){
@@ -35,27 +37,27 @@ class LoginPage extends React.Component{
 
         if (Object.keys(errors).length === 0) {
             this.setState({loading:true});
-            this.props.authStore.login(this.state.data).then(()=>{
-                const {isAuthenticated} = this.props.authStore;
-                if(isAuthenticated){
-                    // this.props.history.push("/home");
-                  // window.location.replace("/");
-                }
-            });
-            // this.props.login(this.state.data).then((response)=>{
-            //     this.setState({loading:false});
-            //     this.setState({alertData:response.data});
-            //     if(response.data.status){
-            //         window.location.replace("/");
+            // this.props.login(this.state.data).then(()=>{
+            //     const {isAuthenticated} = this.props.authStore;
+            //     if(isAuthenticated){
+            //         // this.props.history.push("/home");
+            //       // window.location.replace("/");
             //     }
-            // }).catch(error=>{
-            //     console.log(error);
-            //     const data={
-            //         status:false,
-            //         msg:error.toString()
-            //     }
-            //     this.setState({alertData:data});
             // });
+            this.props.login(this.state.data).then((response)=>{
+                this.setState({loading:false});
+                this.setState({alertData:response.data});
+                if(response.data.status){
+                    window.location.replace("/");
+                }
+            }).catch(error=>{
+                console.log(error);
+                const data={
+                    status:false,
+                    msg:error.toString()
+                }
+                this.setState({alertData:data});
+            });
         }
     }
 
@@ -118,5 +120,11 @@ class LoginPage extends React.Component{
     }
 }
 
+PropTypes.propTypes={
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
+    login: PropTypes.func.isRequired
+}
 
-export default inject("authStore")(observer(LoginPage));
+export default connect(null,{login})(LoginPage)

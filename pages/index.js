@@ -6,7 +6,8 @@ import PostList from "../components/PostList";
 import Menu from "../components/Menu";
 import {BarLoader} from 'react-spinners';
 import axios from "axios";
-import {inject, observer} from "mobx-react";
+import {connect} from 'react-redux';
+import {login} from "../store/actions/authActions";
 
 class Index extends Component {
     constructor(props) {
@@ -88,7 +89,7 @@ class Index extends Component {
 
         return (
             <div className="container">
-                {this.props.authStore.isAuthenticated && <h1>成功登陆</h1>}
+                {/*{this.props.isAuthenticated && <h1>成功登陆</h1>}*/}
                 {alertData && <Alert alertData={alertData}/>}
                 <div className="col-md-9">
                     <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
@@ -112,4 +113,4 @@ class Index extends Component {
     }
 }
 
-export default inject("authStore")(observer(Index));
+export default connect()(Index);

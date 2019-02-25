@@ -1,4 +1,0 @@
-export const STATUS_INIT = 'STATUS_INIT';
-export const STATUS_BEGIN = 'STATUS_BEGIN';
-export const STATUS_SUCCESS = 'STATUS_SUCCESS';
-export const STATUS_ERROR='STATUS_ERROR';

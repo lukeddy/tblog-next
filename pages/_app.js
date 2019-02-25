@@ -5,30 +5,30 @@ import Footer from '../components/Footer'
 import Head from "next/head"
 import axios from 'axios'
 import getConfig from 'next/config'
-import {Provider} from 'mobx-react'
-import AuthStore from "../store/AuthStore";
+import {createStore,applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import rootReducer from '../store/reducers/rootReducer';
+
 
 const {serverBaseUrl, serverApiUrl} = getConfig().publicRuntimeConfig
 
 //console.log('config:',serverBaseUrl,serverApiUrl)
-const stores = {
-    authStore: new AuthStore(),
-    // indexStore: new IndexStore(),
-    // postStore:new PostStore(),
-    // commentStore:new CommentStore(),
-    // categoryStore:new CategoryStore(),
-    // uploadStore:new UploadStore(),
-}
+const store=createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk)));
 
 axios.defaults.baseURL=serverApiUrl;
 
 class MyApp extends App {
+
   render () {
     const {Component, pageProps} = this.props
 
     return (
-        <Provider {...stores}>
           <Container>
+              <Provider store={store}>
               <div>
                 <Head>
                     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
@@ -44,8 +44,8 @@ class MyApp extends App {
                 </div>
                 <Footer/>
               </div>
+              </Provider>
           </Container>
-        </Provider>
     )
   }
 }
