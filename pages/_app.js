@@ -10,21 +10,31 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import rootReducer from '../store/reducers/rootReducer';
-
+import withRedux from "next-redux-wrapper";
 
 const {serverBaseUrl, serverApiUrl} = getConfig().publicRuntimeConfig
 
 //console.log('config:',serverBaseUrl,serverApiUrl)
-const store=createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk)));
+// const store=createStore(
+//     rootReducer,
+//     composeWithDevTools(applyMiddleware(thunk)));
+
+const makeStore = () => {
+    return createStore(
+        rootReducer,
+        composeWithDevTools(applyMiddleware(thunk)));
+};
 
 axios.defaults.baseURL=serverApiUrl;
 
 class MyApp extends App {
+   static async getInitialProps({Component, ctx}) {
+     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+     return {pageProps};
+  }
 
   render () {
-    const {Component, pageProps} = this.props
+    const {Component, pageProps, store} = this.props
 
     return (
           <Container>
@@ -50,4 +60,4 @@ class MyApp extends App {
   }
 }
 
-export default MyApp
+export default  withRedux(makeStore)(MyApp)

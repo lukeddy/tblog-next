@@ -3505,6 +3505,11 @@ next-images@^1.0.4:
     file-loader "^3.0.1"
     url-loader "^1.1.2"
 
+next-redux-wrapper@^3.0.0-alpha.1:
+  version "3.0.0-alpha.1"
+  resolved "http://registry.npm.taobao.org/next-redux-wrapper/download/next-redux-wrapper-3.0.0-alpha.1.tgz#79d56457f874e94804f735163b7a52f3b4ddf41c"
+  integrity sha1-edVkV/h06UgE9zUWO3pS87Td9Bw=
+
 next-server@8.0.0:
   version "8.0.0"
   resolved "http://registry.npm.taobao.org/next-server/download/next-server-8.0.0.tgz#2ad17f505b042a4fb47cc2ae0967f7f195e78b6a"
