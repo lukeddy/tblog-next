@@ -86,10 +86,11 @@ class Index extends Component {
         const {pager,catList}=this.props
         // console.log('state:',this.state)
         // console.log('props:',this.props)
+        const {isAuthenticated}=this.props.auth;
 
         return (
             <div className="container">
-                {/*{this.props.isAuthenticated && <h1>成功登陆</h1>}*/}
+                {isAuthenticated && <h1>成功登陆</h1>}
                 {alertData && <Alert alertData={alertData}/>}
                 <div className="col-md-9">
                     <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
@@ -113,4 +114,14 @@ class Index extends Component {
     }
 }
 
-export default connect(state => state)(Index);
+// Index.propTypes = {
+//     auth: PropTypes.object.isRequired,
+// }
+
+function mapStateToProps(state) {
+    return {
+        auth: state.authReducer
+    };
+}
+
+export default connect(mapStateToProps,null)(Index)
