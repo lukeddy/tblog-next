@@ -3510,6 +3510,13 @@ next-redux-wrapper@^3.0.0-alpha.1:
   resolved "http://registry.npm.taobao.org/next-redux-wrapper/download/next-redux-wrapper-3.0.0-alpha.1.tgz#79d56457f874e94804f735163b7a52f3b4ddf41c"
   integrity sha1-edVkV/h06UgE9zUWO3pS87Td9Bw=
 
+next-routes@^1.4.2:
+  version "1.4.2"
+  resolved "http://registry.npm.taobao.org/next-routes/download/next-routes-1.4.2.tgz#736a382579a792ea69f35ae70b449acdfefa7944"
+  integrity sha1-c2o4JXmnkupp81rnC0Sazf76eUQ=
+  dependencies:
+    path-to-regexp "^2.1.0"
+
 next-server@8.0.0:
   version "8.0.0"
   resolved "http://registry.npm.taobao.org/next-server/download/next-server-8.0.0.tgz#2ad17f505b042a4fb47cc2ae0967f7f195e78b6a"
@@ -3926,6 +3933,11 @@ path-to-regexp@2.1.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-2.1.0.tgz#7e30f9f5b134bd6a28ffc2e3ef1e47075ac5259b"
   integrity sha1-fjD59bE0vWoo/8Lj7x5HB1rFJZs=
+
+path-to-regexp@^2.1.0:
+  version "2.4.0"
+  resolved "http://registry.npm.taobao.org/path-to-regexp/download/path-to-regexp-2.4.0.tgz#35ce7f333d5616f1c1e1bfe266c3aba2e5b2e704"
+  integrity sha1-Nc5/Mz1WFvHB4b/iZsOrouWy5wQ=
 
 path-type@^2.0.0:
   version "2.0.0"

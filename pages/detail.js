@@ -14,12 +14,12 @@ import getConfig from 'next/config'
 class Detail extends React.Component{
 
     static async getInitialProps({store,query}) {
-        //console.log('props',store)
-        //return {post:null,comments:null,alertData:{status:false,msg:"测试"}}
+        // console.log('props',query)
+        // return {post:null,comments:null,alertData:{status:false,msg:"测试"}}
 
-        const {id}=query
+        const {postId}=query
         try{
-            const response =await axios.get("/post/detail/"+id)
+            const response =await axios.get("/post/detail/"+postId)
             const {status,msg,data}=response.data
             //console.log('post:',data)
             if(status){

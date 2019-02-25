@@ -1,5 +1,7 @@
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
+// import Router from "next/router"
+import { Link, Router } from '../routes'
 import PropTypes from "prop-types";
 import getConfig from 'next/config'
 
@@ -36,9 +38,13 @@ class PostItem extends React.Component{
                                 </ul>
                             </div>
                             <div className="title-row">
-                                <Link  as={`/detail/${post.id}`}  href={`/detail/?id=${post.id}`}>
+                                <Link route='detail' params={{ postId: post.id }}>
                                     <a  className="title">{post.title}</a>
                                 </Link>
+
+                                {/*<Link  as={`/detail/${post.id}`}  href={`/detail/?id=${post.id}`}>*/}
+                                    {/*<a  className="title">{post.title}</a>*/}
+                                {/*</Link>*/}
                             </div>
                             <div className="desc-row">{post.desc}</div>
                             <div className="action-row">

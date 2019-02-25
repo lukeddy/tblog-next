@@ -28,6 +28,7 @@
     "next": "^8.0.0",
     "next-images": "^1.0.4",
     "next-redux-wrapper": "^3.0.0-alpha.1",
+    "next-routes": "^1.4.2",
     "prismjs": "1.14.0",
     "prop-types": "^15.6.2",
     "ramda": "^0.26.1",
