@@ -13,7 +13,7 @@ import getConfig from 'next/config'
 
 class Detail extends React.Component{
 
-    static async getInitialProps({store,query}) {
+    static async getInitialProps({store, isServer, pathname, query, req}) {
         // console.log('props',query)
         // return {post:null,comments:null,alertData:{status:false,msg:"测试"}}
 

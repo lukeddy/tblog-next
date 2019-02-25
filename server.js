@@ -39,15 +39,18 @@ const app = next({ dev })
 const handler = routes.getRequestHandler(app)
 
 // With express
-// const express = require('express')
-// app.prepare().then(() => {
-//     express().use(handler).listen(3000)
-// })
-
-// Without express
+const express = require('express')
 app.prepare().then(() => {
-    createServer(handler).listen(port, err => {
+    express().use(handler).listen(port,(err)=>{
         if (err) throw err
-        console.log(`> Ready on http://localhost:${port}`)
+        console.log(`> Ready on express http://localhost:${port}`)
     })
 })
+
+// Without express
+// app.prepare().then(() => {
+//     createServer(handler).listen(port, err => {
+//         if (err) throw err
+//         console.log(`> Ready on http://localhost:${port}`)
+//     })
+// })
