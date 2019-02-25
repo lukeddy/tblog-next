@@ -38,6 +38,13 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handler = routes.getRequestHandler(app)
 
+// With express
+// const express = require('express')
+// app.prepare().then(() => {
+//     express().use(handler).listen(3000)
+// })
+
+// Without express
 app.prepare().then(() => {
     createServer(handler).listen(port, err => {
         if (err) throw err
