@@ -1,5 +1,13 @@
 const nextRoutes = require('next-routes')
-const routes = (module.exports = nextRoutes())
+const routes=nextRoutes()
+
 
 routes.add('detail', '/detail/:postId')
-// routes.add('about', '/about-us/:foo(bar|baz)')
+//routes.add('detail', '/detail/:postId')                   // post  page       /detail/abc12313
+//routes.add('about')                                       // about  about     /about
+//routes.add('blog', '/blog/:slug')                         // blog   blog      /blog/:slug
+//routes.add('user', '/user/:id', 'profile')                // user   profile   /user/:id
+//routes.add('/:noname/:lang(en|es)/:wow+', 'complex')      // (none) complex   /:noname/:lang(en|es)/:wow+
+//routes.add({name: 'beta', pattern: '/v3', page: 'v3'})    // beta   v3        /v3
+
+module.exports = routes
