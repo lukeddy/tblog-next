@@ -28,10 +28,21 @@ const makeStore = () => {
 axios.defaults.baseURL=serverApiUrl;
 
 class MyApp extends App {
-   static async getInitialProps({Component, ctx}) {
-     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-     return {pageProps};
-  }
+  //  static async getInitialProps({Component, ctx}) {
+  //    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+  //    return {pageProps};
+  // }
+
+    static async getInitialProps({Component, ctx}) {
+
+        return {
+            pageProps: {
+                // Call page-level getInitialProps
+                ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {})
+            }
+        };
+
+    }
 
   render () {
     const {Component, pageProps, store} = this.props
@@ -60,4 +71,4 @@ class MyApp extends App {
   }
 }
 
-export default  withRedux(makeStore)(MyApp)
+export default withRedux(makeStore, {debug: true})(MyApp);

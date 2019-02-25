@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Router from 'next/router'
 import Advertise from "../components/Advertise";
 import InlineError from "../components/common/InlineError";
 import Alert from '../components/common/Alert';
@@ -37,18 +38,12 @@ class LoginPage extends React.Component{
 
         if (Object.keys(errors).length === 0) {
             this.setState({loading:true});
-            // this.props.login(this.state.data).then(()=>{
-            //     const {isAuthenticated} = this.props.authStore;
-            //     if(isAuthenticated){
-            //         // this.props.history.push("/home");
-            //       // window.location.replace("/");
-            //     }
-            // });
             this.props.login(this.state.data).then((response)=>{
                 this.setState({loading:false});
                 this.setState({alertData:response.data});
                 if(response.data.status){
-                    window.location.replace("/");
+                    //window.location.replace("/");
+                    Router.push('/')
                 }
             }).catch(error=>{
                 console.log(error);

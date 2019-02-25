@@ -7,7 +7,7 @@ import Menu from "../components/Menu";
 import {BarLoader} from 'react-spinners';
 import axios from "axios";
 import {connect} from 'react-redux';
-import {login} from "../store/actions/authActions";
+// import {login} from "../store/actions/authActions";
 
 class Index extends Component {
     constructor(props) {
@@ -113,4 +113,4 @@ class Index extends Component {
     }
 }
 
-export default connect()(Index);
+export default connect(state => state)(Index);
