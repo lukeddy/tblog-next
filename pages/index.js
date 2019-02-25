@@ -83,10 +83,10 @@ class Index extends Component {
 
     render() {
         const {currentFilter, alertData,loading}=this.state
-        const {pager,catList}=this.props
+        const {pager,catList,isAuthenticated}=this.props
         // console.log('state:',this.state)
         // console.log('props:',this.props)
-        const {isAuthenticated}=this.props.auth;
+        //const {isAuthenticated}=this.props;
 
         return (
             <div className="container">
@@ -120,7 +120,7 @@ class Index extends Component {
 
 function mapStateToProps(state) {
     return {
-        auth: state.authReducer
+        isAuthenticated: state.authReducer.isAuthenticated
     };
 }
 
