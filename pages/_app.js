@@ -19,9 +19,16 @@ const {serverBaseUrl, serverApiUrl} = getConfig().publicRuntimeConfig
 //     rootReducer,
 //     composeWithDevTools(applyMiddleware(thunk)));
 
-const makeStore = () => {
+// const makeStore = (initialState, options) => {
+//     return createStore(
+//         rootReducer,
+//         composeWithDevTools(applyMiddleware(thunk)));
+// };
+
+const makeStore = (initialState) => {
     return createStore(
         rootReducer,
+        initialState,
         composeWithDevTools(applyMiddleware(thunk)));
 };
 
