@@ -5,6 +5,7 @@ const routes=nextRoutes()
 routes.add('detail', '/detail/:postId')
 // routes.add('categoryeadd', '/admin/categoryadd')
 routes.add('admin/categoryedit', '/admin/categoryedit/:catId')
+routes.add('admin/postedit', '/admin/postedit/:postId')
 //routes.add('detail', '/detail/:postId')                   // post  page       /detail/abc12313
 //routes.add('about')                                       // about  about     /about
 //routes.add('blog', '/blog/:slug')                         // blog   blog      /blog/:slug
