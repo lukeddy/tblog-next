@@ -1,6 +1,6 @@
 import App, {Container} from 'next/app'
 import React from 'react'
-import Nav from '../components/Nav'
+// import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Head from "next/head"
 import axios from 'axios'
@@ -15,15 +15,6 @@ import withRedux from "next-redux-wrapper";
 const {serverBaseUrl, serverApiUrl} = getConfig().publicRuntimeConfig
 
 //console.log('config:',serverBaseUrl,serverApiUrl)
-// const store=createStore(
-//     rootReducer,
-//     composeWithDevTools(applyMiddleware(thunk)));
-
-// const makeStore = (initialState, options) => {
-//     return createStore(
-//         rootReducer,
-//         composeWithDevTools(applyMiddleware(thunk)));
-// };
 
 const makeStore = (initialState) => {
     return createStore(
@@ -35,10 +26,6 @@ const makeStore = (initialState) => {
 axios.defaults.baseURL=serverApiUrl;
 
 class MyApp extends App {
-  //  static async getInitialProps({Component, ctx}) {
-  //    const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
-  //    return {pageProps};
-  // }
 
     static async getInitialProps({Component, ctx}) {
 
