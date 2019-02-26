@@ -30,8 +30,8 @@ class Nav extends React.Component{
                     <ul className="nav navbar-nav">
                         <li><Link href="/"><a>首页</a></Link></li>
                         <li><Link href="/about"><a>关于</a></Link></li>
-                        {isAuthenticated && <li><Link href="/category"><a>栏目管理</a></Link></li>}
-                        {isAuthenticated && <li><Link href="/post"><a>帖子管理</a></Link></li>}
+                        {isAuthenticated && <li><Link href="/admin/category"><a>栏目管理</a></Link></li>}
+                        {isAuthenticated && <li><Link href="/admin/post"><a>帖子管理</a></Link></li>}
                         {!isAuthenticated && <li><Link href="/register"><a>注册</a></Link></li>}
                         {!isAuthenticated && <li><Link href="/login"><a>登陆</a></Link></li>}
                         {isAuthenticated && <li><Link href="/logout"><a>登出</a></Link></li>}
