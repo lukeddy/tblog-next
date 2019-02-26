@@ -8,7 +8,7 @@ import {BarLoader} from 'react-spinners';
 import axios from "axios";
 import {connect} from 'react-redux';
 import Nav from '../components/Nav'
-// import {login} from "../store/actions/authActions";
+import {logout} from '../store/actions/authActions';
 
 class Index extends Component {
     constructor(props) {
@@ -90,7 +90,7 @@ class Index extends Component {
             <div className="container main">
                 <Nav isAuthenticated={isAuthenticated}></Nav>
                 <div className="container">
-                    {isAuthenticated && <h1>成功登陆</h1>}
+                    {/*{isAuthenticated && <h1>成功登陆</h1>}*/}
                     {alertData && <Alert alertData={alertData}/>}
                     <div className="col-md-9">
                         <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
@@ -115,14 +115,10 @@ class Index extends Component {
     }
 }
 
-// Index.propTypes = {
-//     auth: PropTypes.object.isRequired,
-// }
-
 function mapStateToProps(state) {
     return {
         isAuthenticated: state.authReducer.isAuthenticated
     };
 }
 
-export default connect(mapStateToProps,null)(Index)
+export default connect(mapStateToProps,{logout})(Index)

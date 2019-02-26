@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 class Nav extends React.Component{
     render(){
-        console.log('props:',this.props)
         const {isAuthenticated}=this.props
         return(
             <div className="navbar navbar-inverse navbar-fixed-top">
@@ -31,8 +30,6 @@ class Nav extends React.Component{
                     <ul className="nav navbar-nav">
                         <li><Link href="/"><a>首页</a></Link></li>
                         <li><Link href="/about"><a>关于</a></Link></li>
-                        {/*<li><Link href="/register"><a>注册</a></Link></li>*/}
-                        {/*<li><Link href="/login"><a>登陆</a></Link></li>*/}
                         {isAuthenticated && <li><Link href="/category"><a>栏目管理</a></Link></li>}
                         {isAuthenticated && <li><Link href="/post"><a>帖子管理</a></Link></li>}
                         {!isAuthenticated && <li><Link href="/register"><a>注册</a></Link></li>}
