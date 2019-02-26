@@ -81,7 +81,7 @@ class CommentForm extends React.Component{
                     <fieldset>
                         <div className="form-group">
                             <label>评论</label>
-                            <textarea name="test" id="" cols="30" rows="10"></textarea>
+                            <textarea name="contentMD" className="form-control" rows="10" onChange={(e)=>this.updateMarkdown(e.target.value,e.target.value)} value={this.state.contentMD}></textarea>
                             {/*<SMEditor toolbar={toolbar} updateMarkdown={this.updateMarkdown} defaultValue={this.state.contentMD}/>*/}
                         </div>
                         <div className="form-group">
