@@ -7,6 +7,7 @@ import Menu from "../components/Menu";
 import {BarLoader} from 'react-spinners';
 import axios from "axios";
 import {connect} from 'react-redux';
+import Nav from '../components/Nav'
 // import {login} from "../store/actions/authActions";
 
 class Index extends Component {
@@ -84,30 +85,30 @@ class Index extends Component {
     render() {
         const {currentFilter, alertData,loading}=this.state
         const {pager,catList,isAuthenticated}=this.props
-        // console.log('state:',this.state)
-        // console.log('props:',this.props)
-        //const {isAuthenticated}=this.props;
 
         return (
-            <div className="container">
-                {isAuthenticated && <h1>成功登陆</h1>}
-                {alertData && <Alert alertData={alertData}/>}
-                <div className="col-md-9">
-                    <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
-                    {!loading &&<div className="panel">
-                        <div className="header">
-                            {catList &&<Menu catList={catList} currentTab={currentFilter.tab} goToTab={this.goToTab}/>}
+            <div className="container main">
+                <Nav isAuthenticated={isAuthenticated}></Nav>
+                <div className="container">
+                    {isAuthenticated && <h1>成功登陆</h1>}
+                    {alertData && <Alert alertData={alertData}/>}
+                    <div className="col-md-9">
+                        <BarLoader loading={loading} widthUnit={'px'} heightUnit={'px'} width={823} height={6} color={'#fa0000'}/>
+                        {!loading &&<div className="panel">
+                            <div className="header">
+                                {catList &&<Menu catList={catList} currentTab={currentFilter.tab} goToTab={this.goToTab}/>}
+                            </div>
+                            <div className="inner no-padding">
+                                {pager&&pager.content.length===0 && <div className='row text-center'>没有数据</div>}
+                                {pager&&pager.content.length>0 && <PostList postList={pager.content}></PostList>}
+                                {pager&&pager.totalPages>0 &&<Pagination totalPages={pager.totalPages} currentPage={pager.number+1} jumpPage={this.goToPage}/> }
+                            </div>
                         </div>
-                        <div className="inner no-padding">
-                            {pager&&pager.content.length===0 && <div className='row text-center'>没有数据</div>}
-                            {pager&&pager.content.length>0 && <PostList postList={pager.content}></PostList>}
-                            {pager&&pager.totalPages>0 &&<Pagination totalPages={pager.totalPages} currentPage={pager.number+1} jumpPage={this.goToPage}/> }
-                        </div>
-                        </div>
-                    }
-                </div>
-                <div className="col-md-3">
-                    <Advertise/>
+                        }
+                    </div>
+                    <div className="col-md-3">
+                        <Advertise/>
+                    </div>
                 </div>
             </div>
         );

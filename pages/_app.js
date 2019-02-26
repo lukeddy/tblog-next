@@ -65,11 +65,7 @@ class MyApp extends App {
                     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                     <title>tblog-next</title>
                 </Head>
-                <Nav/>
-                <div className="container main">
-                  {/*<h1 className="text-center">tblog-next.js</h1>*/}
-                  <Component {...pageProps} />
-                </div>
+                <Component {...pageProps} />
                 <Footer/>
               </div>
               </Provider>
