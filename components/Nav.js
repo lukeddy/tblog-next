@@ -28,13 +28,13 @@ class Nav extends React.Component{
                 </div>
                 <div className="navbar-collapse collapse pull-right">
                     <ul className="nav navbar-nav">
-                        <li><Link href="/"><a>首页</a></Link></li>
-                        <li><Link href="/about"><a>关于</a></Link></li>
-                        {isAuthenticated && <li><Link href="/admin/category"><a>栏目管理</a></Link></li>}
-                        {isAuthenticated && <li><Link href="/admin/post"><a>帖子管理</a></Link></li>}
-                        {!isAuthenticated && <li><Link href="/register"><a>注册</a></Link></li>}
-                        {!isAuthenticated && <li><Link href="/login"><a>登陆</a></Link></li>}
-                        {isAuthenticated && <li><Link href="/logout"><a>登出</a></Link></li>}
+                        <li><Link href="/" prefetch><a>首页</a></Link></li>
+                        <li><Link href="/about" prefetch><a>关于</a></Link></li>
+                        {isAuthenticated && <li><Link href="/admin/category" prefetch><a>栏目管理</a></Link></li>}
+                        {isAuthenticated && <li><Link href="/admin/post" prefetch><a>帖子管理</a></Link></li>}
+                        {!isAuthenticated && <li><Link href="/register" prefetch><a>注册</a></Link></li>}
+                        {!isAuthenticated && <li><Link href="/login" prefetch><a>登陆</a></Link></li>}
+                        {isAuthenticated && <li><Link href="/logout" prefetch><a>登出</a></Link></li>}
                     </ul>
                 </div>
             </div>

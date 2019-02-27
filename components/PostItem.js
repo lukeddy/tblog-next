@@ -38,7 +38,7 @@ class PostItem extends React.Component{
                                 </ul>
                             </div>
                             <div className="title-row">
-                                <Link route='detail' params={{ postId: post.id }}>
+                                <Link route='detail' params={{ postId: post.id }} prefetch>
                                     <a  className="title">{post.title}</a>
                                 </Link>
 
